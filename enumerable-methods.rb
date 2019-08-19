@@ -22,4 +22,14 @@ module Counting_methods
   arr
   end
 
+  def my_all?
+    my_each do |i|
+      unless yield i
+        return false
+      
+      end
+    end
+  true    
+  end
+
 end
