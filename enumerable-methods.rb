@@ -19,7 +19,7 @@ module Counting_methods
         arr.push(i)
       end
     end
-  arr
+    arr
   end
 
   def my_all?
@@ -29,21 +29,29 @@ module Counting_methods
       
       end
     end
-  true    
+    true    
   end
 
   def my_any?
     my_each do |i|
       return true  if yield i
     end
-  false   
+    false   
   end
 
   def my_none? 
     my_each do |i|
       return false if yield i 
     end
-  true   
+    true   
+  end
+
+  def my_count
+    count = 0
+    my_each do |i|
+      count += 1 if yield i
+    end
+  count
   end
 
 end
