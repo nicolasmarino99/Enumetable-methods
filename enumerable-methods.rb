@@ -32,4 +32,11 @@ module Counting_methods
   true    
   end
 
+  def my_any?
+    my_each do |i|
+      return true  if yield i
+    end
+  false   
+  end
+
 end
