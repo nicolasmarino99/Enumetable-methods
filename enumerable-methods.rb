@@ -62,4 +62,12 @@ module Counting_methods
     arr
   end
 
+  def my_inject
+    accumulator = self[0]
+    self.drop(1).my_each do |i|
+      accumulator = yield accumulator, i 
+    end
+    accumulator
+  end
+
 end
