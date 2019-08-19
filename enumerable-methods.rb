@@ -54,4 +54,12 @@ module Counting_methods
   count
   end
 
+  def my_map
+    arr = []
+    my_each do |i|
+      arr.push(yield i)
+    end
+    arr
+  end
+
 end
