@@ -39,4 +39,11 @@ module Counting_methods
   false   
   end
 
+  def my_none? 
+    my_each do |i|
+      return false if yield i 
+    end
+  true   
+  end
+
 end
