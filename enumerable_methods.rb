@@ -9,7 +9,7 @@ module CountingMethods
 
   def my_each_with_index
     (0...size).my_each do |i|
-        yield self[i], i
+      yield self[i], i
     end 
   end
 
@@ -27,7 +27,6 @@ module CountingMethods
     my_each do |i|
       unless yield i
         return false
-      
       end
     end
     true    
