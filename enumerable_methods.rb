@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module CountingMethods
-
   def my_each
-    for i in self
+    each do |i|
       yield i
     end
   end
