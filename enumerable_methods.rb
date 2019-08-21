@@ -10,40 +10,36 @@ module CountingMethods
   def my_each_with_index
     (0...size).my_each do |i|
       yield self[i], i
-    end 
+    end
   end
 
   def my_select
     arr = []
     my_each do |i|
-      if yield i
-        arr.push(i)
-      end
+      arr.push(i) if yield i
     end
     arr
   end
 
   def my_all?
     my_each do |i|
-      unless yield i
-        return false
-      end
+      return false unless yield i
     end
-    true    
+    true
   end
 
   def my_any?
     my_each do |i|
-      return true  if yield i
+      return true if yield i
     end
-    false   
+    false
   end
 
-  def my_none? 
+  def my_none?
     my_each do |i|
-      return false if yield i 
+      return false if yield i
     end
-    true   
+    true
   end
 
   def my_count
@@ -51,7 +47,7 @@ module CountingMethods
     my_each do |i|
       count += 1 if yield i
     end
-  count
+    count
   end
 
   def my_map
@@ -64,10 +60,10 @@ module CountingMethods
 
   def my_inject
     accumulator = self[0]
-    self.drop(1).my_each do |i|
-      accumulator = yield accumulator, i 
+    drop(1).my_each do |i|
+      accumulator = yield accumulator, i
     end
     accumulator
   end
-
+  
 end
