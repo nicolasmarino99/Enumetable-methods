@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-include CountingMethods
+include Enumerable
 
 # [0,2,5,6].my_each {|i| puts i}
 

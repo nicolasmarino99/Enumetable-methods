@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CountingMethods
+module Enumerable
   def my_each
     each do |i|
       yield i
@@ -65,5 +65,5 @@ module CountingMethods
     end
     accumulator
   end
-  
+
 end
