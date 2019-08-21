@@ -37,15 +37,25 @@ module Enumerable
 
   def my_none?
     my_each do |i|
-      return false if yield i
+      if block_given?
+        return false if yield i
+      elsif i.zero?
+        return true
+      else
+        return false
+      end
     end
     true
   end
 
-  def my_count
+  def my_count(repeated_num = nil)
     count = 0
     my_each do |i|
-      count += 1 if yield i
+      if block_given?
+        count += 1 if yield i
+      else
+        count += repeated_num.nil? || repeated_num == i ? 1 : 0
+      end
     end
     count
   end
@@ -58,12 +68,11 @@ module Enumerable
     arr
   end
 
-  def my_inject
+  def my_inject(value = 0)
     accumulator = self[0]
     drop(1).my_each do |i|
       accumulator = yield accumulator, i
     end
-    accumulator
+    accumulator + value
   end
-
 end
